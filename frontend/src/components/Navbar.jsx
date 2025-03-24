@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
+import LogInModal from "../pages/LogInModal";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+   <LogInModal isModalOpen={isLoginModalOpen} setIsModalOpen={setIsLoginModalOpen} />
+
+  
 
   return (
     <nav className="bg-white shadow-md fixed top-0 left-0 w-full z-50">
@@ -33,9 +38,11 @@ const Navbar = () => {
           <Link to="/signup" className="px-4 py-2 border border-black text-black rounded-lg hover:bg-blue-50">
             Sign Up
           </Link>
-          <Link to="/login" className="px-4 py-2 border bg-black text-white rounded-lg hover:bg-blue-900">
+          <a  onClick={() => setIsLoginModalOpen(true)} className="px-4 py-2 border bg-black text-white rounded-lg hover:bg-blue-900">
             Login
-          </Link>
+          </a>
+          <LogInModal isModalOpen={isLoginModalOpen} setIsModalOpen={setIsLoginModalOpen} />
+
         </div>
 
         {/* Mobile Menu Button */}
@@ -70,7 +77,7 @@ const Navbar = () => {
           <Link to="/signup" className="w-full block py-2 border border-black text-black rounded-lg hover:bg-blue-100 my-2">
             Sign Up
           </Link>
-          <Link to="/login" className="w-full block py-2 bg-black text-white rounded-lg hover:bg-blue-50">
+          <Link onClick={() => setIsLoginModalOpen(true)} to="/login" className="w-full block py-2 bg-black text-white rounded-lg hover:bg-blue-50">
             Log in
           </Link>
         </div>
