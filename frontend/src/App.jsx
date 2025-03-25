@@ -11,10 +11,12 @@ import Signup from "./pages/Signup";
 // import Login from "./pages/LogInModal";
 // import LoginInModal from "./pages/LogInModal";
 import LogInModal from "./pages/LogInModal";
+import  { Toaster } from 'react-hot-toast';
 
 
 const App = () => {
   return (
+    <>
     <Router>
       <Routes>
         <Route path="/" element={<Home/>} />
@@ -28,6 +30,8 @@ const App = () => {
         <Route path="/login" element={<LogInModal/>} />
       </Routes>
     </Router>
+      <Toaster />
+      </>
   );
 };
 
